@@ -1,0 +1,31 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+      {
+        "name": "cl.exe build and debug active file",
+        "type": "cppvsdbg",
+        "request": "launch",
+        "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
+        "args": [],
+        "stopAtEntry": false,
+        "cwd": "${workspaceFolder}",
+        "environment": [],
+        "externalConsole": false,
+        "preLaunchTask": "cl.exe build active file"
+      },
+      {
+        "name": "Attach to QEMU",
+        "type": "",
+        "request": "attach",
+        "executable": "./src/kernel/kernel.bin",
+        "gdbpath": "./tools/gdb/bin/x86_64-pc-linux-gnu-gdb",
+        "cwd": "${workspaceRoot}",
+        "target": ":1234",
+        "remote": true,
+        "autorun": [
+          //"set sysroot ${workspaceRoot}"
+          "set substitute-path /usr/src/osdev ${workspaceRoot}"
+        ]
+      }
+    ]
+  }

@@ -1,0 +1,10 @@
+-m32
+-Isrc
+-Wall
+-Wextra
+-nostdlib
+-nostdinc
+-fno-builtin
+-fno-stack-protector
+-nostartfiles
+-nodefaultlibs

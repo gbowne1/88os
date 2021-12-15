@@ -1,0 +1,53 @@
+{
+    "env": {
+      "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
+      "myCompilerPath": "/usr/local/bin/gcc-7"
+    },
+    "configurations": [
+      {
+        "name": "Win32",
+        "includePath": [
+            "${default}"
+        ],
+        "defines": [
+            "${default}"
+        ],
+        "macFrameworkPath": [
+            "${default}"
+        ],
+        "forcedInclude": [
+            "${default}"
+        ],
+        "compileCommands": "${default}",
+        "browse": {
+            "limitSymbolsToIncludedHeaders": true,
+            "databaseFilename": "${default}",
+            "path": [
+                "${default}"
+            ]
+        },
+        "intelliSenseMode": "${default}",
+        "cStandard": "${default}",
+        "cppStandard": "${default}",
+        "compilerPath": "${default}"
+      },
+      {
+        "name": "Mac",
+        "browse": {
+          "path": ["${workspaceFolder}"],
+          "limitSymbolsToIncludedHeaders": true
+        },
+        "includePath": [
+          "${workspaceFolder}",
+          "${workspaceFolder}/src/sysroot/usr/include"
+        ],
+        "defines": [],
+        "macFrameworkPath": ["/System/Library/Frameworks", "/Library/Frameworks"],
+        "compilerPath": "/usr/bin/clang",
+        "cStandard": "c11",
+        "cppStandard": "c++17",
+        "intelliSenseMode": "clang-x64"
+      }
+  ],
+  "version": 4
+}
