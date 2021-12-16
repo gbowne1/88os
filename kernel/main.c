@@ -42,6 +42,8 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <kernel/event.h>
+#include <inc/x86.h>
+#include <inc/elf.h>
 
 #define SECTSIZE	512
 #define ELFHDR		((struct Elf *) 0x10000) // scratch space

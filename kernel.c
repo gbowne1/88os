@@ -1,4 +1,10 @@
-#inlcude <stdio.h>
+#define PIC1 0x20
+#define PIC2 0xA0
+
+#define ICW1 0x11
+#define ICW4 0x01
+
+#inlcude "<stdio.h>"
 #include "../cpu/isr.h"
 #include "../cpu/paging.h"
 #include "../cpu/ports.h"
@@ -12,6 +18,10 @@
 #include <idt.h>
 #include <terminal.h>
 #include <terminal_backend_b8000.h>
+#include "system.h"
+#include "system.c"
+#include "string.c"
+#include "screen.c"
 
 /*void kernel_main(void) {
     terminal_initialize();
@@ -42,7 +52,7 @@ void kernel_main(uint32_t addr) {
     kprint("Boot success.\n"
            "\n");
 
-    kprint("PawsOS comes with ABSOLUTELY NO WARRANTY,\n"
+    kprint("88os comes with ABSOLUTELY NO WARRANTY,\n"
            "to the extent permitted by applicable law.\n");
 
     kprint("\nType 'help' to get started\n> ");
@@ -52,16 +62,26 @@ void show_logo(void) {
     terminal_clear();
     printf("\n\n\n\n\n\n\n\n");
     terminal_setcolor(10); // 10 = lightgreen
-    printf("              ___     ___   __    __   ______   ______    _____  \n");
-    printf("             |   |   |   | |  |  |  | |      | |_    _|  /     \\ \n");
-    printf("             |    \\_/    | |   \\/   | |  ___/    |  |   |   _   |\n");
-    printf("             |           |  \\      /   \\___ \\    |  |   |  |_|  |\n");
-    printf("             |   |\\_/|   |   \\    /    /     |   |  |   |   _   |\n");
-    printf("             |   |   |   |    |  |    |      |  _|  |_  |  | |  |\n");
-    printf("             |___|   |___|    |__|    |_____/  |______| |__| |__|\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
+    printf("\n");
     terminal_setcolor(15); // white
 }
 
+kernel_main(){
+	initialize_console();
+	puts("Hello, World!\n");
+	set_text_color(RED, LIGHT_GREY);
+	puts("\tWelcome to my OS!\n");
+	set_text_color(WHITE, BLACK);
+	puts("The address for video memory is: ");
+	puthex(0xb8000);
+	for(;;);
+}
 
 int div(int a, int b) {
     return a/b;

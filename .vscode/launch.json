@@ -14,8 +14,8 @@
         "preLaunchTask": "cl.exe build active file"
       },
       {
+        "type": "gdb",
         "name": "Attach to QEMU",
-        "type": "",
         "request": "attach",
         "executable": "./src/kernel/kernel.bin",
         "gdbpath": "./tools/gdb/bin/x86_64-pc-linux-gnu-gdb",

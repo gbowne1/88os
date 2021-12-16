@@ -1,4 +1,4 @@
-#include <io.h>
+#include <./io.h>
 #include <stdint.h>
 
 void outportb(uint16_t port, uint8_t val) {

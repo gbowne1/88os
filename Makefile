@@ -11,6 +11,7 @@ includedirs := $(sort $(foreach dir, $foreach dir1, $(dirs), $(shell dirname $(d
 
 CC = gcc
 AS = nasm
+GCC=GCC
 LD = ld
 VPATH=src:$(SOURCE)
 NASM=nasm
@@ -27,6 +28,9 @@ ISO = grub-mkrescue
 ISOFLAGS =
 GRUB = grub.cfg
 GRUBFILE = $(patsubst %, $(GRUBPATH)/%, $(GRUB))
+OBJ = ${C_SOURCES:.c=.o}
+C_SOURCES = $(wildcard kernel/*.c drivers/*.c)
+HEADERS = $(wildcard kernel/*.h drivers/*.h)
 
 .PHONY: userland clean ports
 .PHONY: all
@@ -187,6 +191,8 @@ build/$(arch)/kernel/%.o: src/$(arch)/kernel/%.c
 	@echo compiling $<
 	@gcc -c $(CFLAGS) $< -o $@
 
+boot/boot_sect.bin: boot/boot_sect.asm
+		nasm $< -f bin -o $@
 
 CFLAGS = -g -m32 -fno-stack-protector -fno-builtin -fnostack-protector -fno-asynchronous-unwind-tables \
          -nostdlib -nostdinc -fno-PIC -fno-PIE -Wall -Wextra -Werror -I.
@@ -288,3 +294,10 @@ run: install
 .PHONY: clean
 clean:
 	rm -rf out
+	rm -f *.iso
+	rm -f $(OBJECTS)
+	rm -f *.elf # elf executables
+	rm -f *.bin # flat binary executables
+	rm -f *.out
+	rm -rf iso/
+	rm -f built_file_system
