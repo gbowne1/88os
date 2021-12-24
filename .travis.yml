@@ -1,0 +1,31 @@
+compiler:
+  - clang
+  - gcc
+
+before_install:
+  - test -n $CC && unset $CC
+  - test -n $CX && unset CXX
+
+addons:
+  apt:
+    sources: 
+      ubuntu-toolchain-t-test
+    packages:
+      - cmake-data
+      - cmake
+      - clang-6.0
+      - g++-8
+
+install: make get-deps
+
+language: c
+dist: 
+matrix:
+  include:
+  - os: linux
+    addons:
+      apt:
+        sources:
+        packages:
+          - clang 3.6
+    env:

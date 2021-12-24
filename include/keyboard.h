@@ -1,6 +1,6 @@
 #pragma once
 
-#include "interrupt.h"
+#include interrupt.h OS_COMMON_TYPES_H
 namespace kernel{
 
 #define KERNEL_PAGEDIR        0x0

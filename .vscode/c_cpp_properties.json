@@ -1,65 +1,24 @@
 {
-    "env": {
-      "myDefaultIncludePath": ["${workspaceFolder}", "${workspaceFolder}/include"],
-      "myCompilerPath": "/usr/local/bin/gcc-7"
-    },
     "configurations": [
-      {
-        "name": "Win32",
-        "includePath": [
-            "${default}"
-        ],
-        "defines": [
-            "${default}"
-        ],
-        "macFrameworkPath": [
-            "${default}"
-        ],
-        "forcedInclude": [
-            "${default}"
-        ],
-        "compileCommands": "${default}",
-        "browse": {
-            "limitSymbolsToIncludedHeaders": true,
-            "databaseFilename": "${default}",
-            "path": [
-                "${default}"
-            ]
+        {
+            "name": "linux-gcc-x64",
+            "includePath": [
+                "${workspaceFolder}/**"
+            ],
+            "compilerPath": "/usr/bin/gcc",
+            "cStandard": "${default}",
+            "cppStandard": "${default}",
+            "intelliSenseMode": "linux-gcc-x64",
+            "compilerArgs": [
+                "-Wall",
+                "-Wextra",
+                "-Wpedantic"
+            ],
+            "configurationProvider": "ms-vscode.cmake-tools"
         },
-        "intelliSenseMode": "${default}",
-        "cStandard": "${default}",
-        "cppStandard": "${default}",
-        "compilerPath": "${default}"
-      },
-      {
-        "name": "Mac",
-        "browse": {
-          "path": ["${workspaceFolder}"],
-          "limitSymbolsToIncludedHeaders": true
-        },
-        "includePath": [
-          "${workspaceFolder}",
-          "${workspaceFolder}/src/sysroot/usr/include"
-        ],
-        "defines": [],
-        "macFrameworkPath": ["/System/Library/Frameworks", "/Library/Frameworks"],
-        "compilerPath": "/usr/bin/clang",
-        "cStandard": "c11",
-        "cppStandard": "c++17",
-        "intelliSenseMode": "clang-x64"
-      },
-      {
-        "name": "Linux",
-        "includePath": [
-            "${workspaceFolder}/**"
-        ],
-        "defines": [],
-        "compilerPath": "/usr/bin/gcc",
-        "cStandard": "c11",
-        "cppStandard": "c++11",
-        "intelliSenseMode": "gcc-x64",
-        "configurationProvider": "vector-of-bool.cmake-tools"
-    }
-  ],
-  "version": 4
+        {
+            "name": "Clang"
+        }
+    ],
+    "version": 4
 }

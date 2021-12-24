@@ -1,31 +1,26 @@
 {
-    "version": "0.2.0",
-    "configurations": [
-      {
-        "name": "cl.exe build and debug active file",
-        "type": "cppvsdbg",
-        "request": "launch",
-        "program": "${fileDirname}\\${fileBasenameNoExtension}.exe",
-        "args": [],
-        "stopAtEntry": false,
-        "cwd": "${workspaceFolder}",
-        "environment": [],
-        "externalConsole": false,
-        "preLaunchTask": "cl.exe build active file"
-      },
-      {
-        "type": "gdb",
-        "name": "Attach to QEMU",
-        "request": "attach",
-        "executable": "./src/kernel/kernel.bin",
-        "gdbpath": "./tools/gdb/bin/x86_64-pc-linux-gnu-gdb",
-        "cwd": "${workspaceRoot}",
-        "target": ":1234",
-        "remote": true,
-        "autorun": [
-          //"set sysroot ${workspaceRoot}"
-          "set substitute-path /usr/src/osdev ${workspaceRoot}"
-        ]
-      }
-    ]
-  }
+  "version": "0.2.0",
+  "configurations": [
+    {
+      "name": "C/C++ Runner: Debug Session",
+      "type": "cppdbg",
+      "request": "launch",
+      "args": [],
+      "stopAtEntry": false,
+      "cwd": "/home/gbowne1/Documents/88os/.vs",
+      "environment": [],
+      "program": "/home/gbowne1/Documents/88os/.vs/build/Debug/outDebug",
+      "internalConsoleOptions": "openOnSessionStart",
+      "MIMode": "gdb",
+      "miDebuggerPath": "/usr/bin/gdb",
+      "externalConsole": false,
+      "setupCommands": [
+        {
+          "description": "Enable pretty-printing for gdb",
+          "text": "-enable-pretty-printing",
+          "ignoreFailures": true
+        }
+      ]
+    }
+  ]
+}

@@ -4,7 +4,7 @@
 #define ICW1 0x11
 #define ICW4 0x01
 
-#inlcude "<stdio.h>"
+#include <stdio.h>
 #include "../cpu/isr.h"
 #include "../cpu/paging.h"
 #include "../cpu/ports.h"

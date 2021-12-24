@@ -6,12 +6,11 @@
 #include <stddef.h>
 #include <stdint.h>
  
-#include "include/string.h"
+#include "/kernel/include/string.h"
 #include "include/memory.h"
 #include "include/display.h"
 #include "display/textmode/dispi_textmode.h"
-#include <"include/x86.h">
-#include <"include/elf.h">
+#include <include/x86.h>
 #include "include/x86/gdt.h"
 #include "include/x86/idt.h"
 #include "include/pit.h"
@@ -32,8 +31,7 @@
 #include "include/devfs.h"
 #include "include/loader.h"
 #include "include/module.h"
-#include "include/elf.h"
-#include "include/pci.h"
+#include </kernel/include/IO/pci.h>
 #include <stdio.h>
 #include <fcntl.h>
 #include <stdlib.h>
@@ -42,8 +40,8 @@
 #include <sys/mman.h>
 #include <sys/stat.h>
 #include <kernel/event.h>
-#include <inc/x86.h>
-#include <inc/elf.h>
+#include <include/x86.h>
+#include <include/elf.h>
 
 #define SECTSIZE	512
 #define ELFHDR		((struct Elf *) 0x10000) // scratch space

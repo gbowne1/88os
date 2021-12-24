@@ -1,8 +1,8 @@
 #include <stddef.h>
 #include <stdint.h>
 
-#include "obj/drivers/ports.h"
-#include "obj/drivers/screen.h"
+#include <kernel/IO/port.h>
+#include <include/screen.h>
 /* force to create kernel entry function */
 void dummy_test_entrypoint() {
 }
@@ -34,7 +34,7 @@ void main() {
 	
 	//Example of the finalized print functionality
 	//2 important print functions: print_at(String, Position), print_at_color(String, Position, VGA Color Code)
-	print_at_color("BASA-OS", VIDEO_ADDRESS+0xa00, GREEN);
+	print_at_color("88os", VIDEO_ADDRESS+0xa00, GREEN);
 }
 
 int length(char* str);
@@ -77,7 +77,7 @@ void print_at(char* str, int pos)
 }
 
 //Custom print function that takes in a string str, screen position pos, and a color code and prints it at pos
-//Ex usage: print_at_color("BASA-OS", 0xb8a00, 0x0f)
+//Ex usage: print_at_color("88os", 0xb8a00, 0x0f)
 //For color codes: First bit is background color, second is foreground color
 //eg. 0x0f is white text on black background
 //VGA color codes: http://www.osdever.net/bkerndev/Docs/printing.htm

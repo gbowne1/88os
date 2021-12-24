@@ -1,8 +1,8 @@
 // timer.c -- Initialises the PIT and handles clock updates.
 // Written for JamesM's kernel development tutorials.
 #include <system.h>
-#include "timer.h"
-#include "isr.h"
+#include <timer.h>
+#include <isr.h>
 #include "monitor.h"
 
 int timer_ticks = 0;

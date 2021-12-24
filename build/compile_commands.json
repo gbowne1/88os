@@ -1,0 +1,7 @@
+[
+{
+  "directory": "/home/gbowne1/Documents/88os/build",
+  "command": "/bin/clang++-11  -I/home/gbowne1/Documents/88os/include -std=c++11 -static -mcmodel=kernel -fno-stack-protector -fno-pic -mno-red-zone -fno-use-cxa-atexit -fno-rtti -fno-exceptions -nostdlib -ffreestanding -g -Wall -o CMakeFiles/kernel-x86_64.bin.dir/install.cpp.o -c /home/gbowne1/Documents/88os/install.cpp",
+  "file": "/home/gbowne1/Documents/88os/install.cpp"
+}
+]

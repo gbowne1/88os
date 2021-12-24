@@ -10,7 +10,7 @@
 #include "multiboot_utils.h"
 #include "process.h"
 #include "kernel_stdio.h"
-#include "stdlib.h"
+#include <stdlib.h>
 #include "types.h"
 
 static char *welcome_string = ""

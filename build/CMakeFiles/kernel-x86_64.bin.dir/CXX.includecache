@@ -1,0 +1,30 @@
+#IncludeRegexLine: ^[ 	]*[#%][ 	]*(include|import)[ 	]*[<"]([^">]+)([">])
+
+#IncludeRegexScan: ^.*$
+
+#IncludeRegexComplain: ^$
+
+#IncludeRegexTransform: 
+
+/home/gbowne1/Documents/88os/install.cpp
+iostream
+-
+fstream
+-
+string
+-
+sstream
+-
+map
+-
+vector
+-
+limits
+-
+parted/parted.h
+-
+uuid/uuid.h
+-
+os.h
+-
+

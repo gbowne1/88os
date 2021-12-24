@@ -3,7 +3,7 @@
 
 #include <common/types.h>
 #include <IO/port.h>
-#include <util/screen.h>
+#include <include/screen.h>
 #include <multitasking.h>
 #include <memory_manager.h>
 

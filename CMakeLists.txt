@@ -1,7 +1,7 @@
 cmake_minimum_required (VERSION 2.8.4)
 
 set(CMAKE_VERBOSE_MAKEFILE ON)
-set(PROJECT_DIR ~/Projects/os/src)
+set(PROJECT_DIR ~/Documents/88os/src)
 
 if (POLICY CMP0054)
   cmake_policy(SET CMP0054 NEW)
@@ -29,7 +29,7 @@ set(ARCH "x86_64")
 set(HDD "hdd.vdi")
 set(BIN "${PROJECT_NAME}-${ARCH}.bin")
 set(ISO "${PROJECT_NAME}-${ARCH}.iso")
-set(GRUB_CFG "${PROJECT_SOURCE_DIR}/kernel/arch/${ARCH}/grub.cfg")
+set(GRUB_CFG "${PROJECT_SOURCE_DIR} /boot/grub.cfg")
 
 # Build kernel binary if requested
 if (BUILD_KERNEL)
@@ -38,11 +38,11 @@ if (BUILD_KERNEL)
     # "make iso" - create bootable kernel iso image
     add_custom_target(iso
         WORKING_DIRECTORY ${CMAKE_CURRENT_BINARY_DIR}
-        COMMAND /usr/bin/env mkdir -p "isofiles/boot/grub"
-        COMMAND /usr/bin/env cp ${GRUB_CFG} "isofiles/boot/grub"
-        COMMAND /usr/bin/env cp kernel/${BIN} "isofiles/boot/kernel.bin"
-        COMMAND grub-mkrescue -o ${ISO} "isofiles"
-        COMMAND /usr/bin/env rm -r "isofiles"
+        COMMAND /usr/bin/env mkdir -p "iso/boot/grub"
+        COMMAND /usr/bin/env cp ${GRUB_CFG} "iso/boot/grub"
+        COMMAND /usr/bin/env cp kernel/${BIN} "iso/boot/kernel.bin"
+        COMMAND grub-mkrescue -o ${ISO} "iso"
+        COMMAND /usr/bin/env rm -r "iso"
     )
 endif()
 
@@ -63,7 +63,7 @@ set(PROJECT_MAJOR_VERSION 0)
 set(PROJECT_MINOR_VERSION 1)
 set(PROJECT_PATCH_LEVEL 0)
 set(PROJECT_VERSION ${PROJECT_MAJOR_VERSION}.${PROJECT_MINOR_VERSION}.${PROJECT_PATCH_LEVEL})
-set(LINKER_SCRIPT "${PROJECT_SOURCE_DIR}/arch/${ARCH}/linker.ld")
+set(LINKER_SCRIPT "${PROJECT_SOURCE_DIR}/boot/linker.ld")
 set(CMAKE_C_STANDARD_REQUIRED ON)
 set(CMAKE_C_EXTENSIONS ON)
 set(CMAKE_C_STANDARD 11)
@@ -82,7 +82,7 @@ set(CMAKE_USER_MAKE_RULES_OVERRIDE_C
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake/c_flags_override.cmake")
 set(CMAKE_USER_MAKE_RULES_OVERRIDE_CXX
   "${CMAKE_CURRENT_SOURCE_DIR}/cmake/cxx_flags_override.cmake")
-project(KLEE CXX C)
+
 
 # Setup compilation and linking flags
 set(CMAKE_CXX_FLAGS "-std=c++11 -static -mcmodel=kernel -fno-stack-protector -fno-pic -mno-red-zone -fno-use-cxa-atexit -fno-rtti -fno-exceptions -nostdlib -ffreestanding")
@@ -103,17 +103,8 @@ if(WERROR)
 endif()
 
 include_directories(include)
-include(CheckFunctionsExists)
 
-# Add subprojects
-add_subdirectory(../middlespace middlespace)
-add_subdirectory(understructure)
-add_subdirectory(services)
-add_subdirectory(modules)
-add_subdirectory(interface)
-
-
-# Collect source files
+# Collect source 
 file(GLOB SOURCES_ASM "arch/${ARCH}/*.S") 
 file(GLOB SOURCES_CPP "*.cpp") 
     
@@ -122,7 +113,7 @@ add_executable(${BIN} ${SOURCES_ASM} ${SOURCES_CPP})
 #target_include_directories(${BIN} .)    
 
 target_link_libraries(${BIN}
-    kstd hardware logging memory time filesystem multitasking drivers cpuexceptions ipc # sevices
+    kstd hardware logging memory time ystem multitasking drivers cpuexceptions ipc # sevices
     fat32 elf64 multiboot2 vga sysinfo # modules
     int80h procfs syscalls # interface
 )

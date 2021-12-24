@@ -1,6 +1,7 @@
 #define GRAPHICS_MODE
 
-#include <common/types.h>
+#include <kernel/include/common/types.h>
+
 #include <IO/port.h>
 #include <IO/interrupts.h>
 #include <IO/pci.h>

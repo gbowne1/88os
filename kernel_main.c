@@ -1,6 +1,6 @@
 #include "lib_asm.h"
 #include "lib_c.h"
-#include "string.h"
+#include <string.h>
 #include "FAT.h"
 
 char inp[100];

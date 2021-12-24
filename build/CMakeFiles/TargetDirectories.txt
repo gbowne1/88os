@@ -1,0 +1,3 @@
+/home/gbowne1/Documents/88os/build/CMakeFiles/rebuild_cache.dir
+/home/gbowne1/Documents/88os/build/CMakeFiles/edit_cache.dir
+/home/gbowne1/Documents/88os/build/CMakeFiles/kernel-x86_64.bin.dir

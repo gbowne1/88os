@@ -5,7 +5,7 @@ namespace kernel {
 #ifndef _KERNEL_INTERRUPT_H_
 #define _KERNEL_INTERRUPT_H_
 
-#include <runtime/types.h>
+#include <types.h>
 
 typedef struct interrupt_frame
 {

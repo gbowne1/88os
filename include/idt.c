@@ -3,7 +3,7 @@
  * Implements Interrupt Descriptor Table construction / modification
  */
 #include <system.h>
-#include <idt.h>
+#include </include/idt.h>
 
 /* Pointer to gate descriptor in the IDT */
 static struct idt_gate_descriptor* idt_ptr

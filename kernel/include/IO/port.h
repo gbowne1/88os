@@ -6,7 +6,7 @@
 namespace os
 {
         namespace IO
-                
+        {        
                 class Port
                 {
                         protected:
@@ -21,7 +21,7 @@ namespace os
                                 Port(common::uint16_t portnumber);
                                 ~Port8Bit();
                                 virtual void Write(common::uint8_t data);
-                                irtual common::uint8_t Read();
+                                virtual common::uint8_t Read();
                 };
 
                 class Port8BitSlow : public Port8Bit
